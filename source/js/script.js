@@ -21,3 +21,10 @@ social();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
+
+window.addEventListener('load', (e) => {
+  document.querySelector('.page-header__logo').classList.add('page-header__logo--load');
+  document.querySelector('.page-header__nav').classList.add('page-header__nav--load');
+  document.querySelector('body').classList.add('loading');
+  document.querySelector('.screen__footer').classList.add('screen__footer--load');
+})
