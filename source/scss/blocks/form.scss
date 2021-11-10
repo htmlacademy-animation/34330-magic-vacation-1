@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  animation: formVisible 2s;
 }
 
 .form__label {
@@ -144,5 +145,16 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
     }
+  }
+}
+
+@keyframes formVisible {
+  0% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
   }
 }

@@ -276,3 +276,9 @@
     }
   }
 }
+.swiper-slide-next,
+.swiper-slide-active {
+  .slider__item-text {
+    animation: fadeIn 2s;
+  }
+}
