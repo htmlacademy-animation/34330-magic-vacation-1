@@ -10,11 +10,26 @@
     display: none;
   }
 
+  &__overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #5f458c;
+    z-index: 10;
+    transform: scaleY(0);
+    transition: transform .3s;
+    transform-origin: center bottom;
+    &--active {
+      transform: scaleY(1);
+    }
+  }
+
   @media (max-width: $tablet) and (orientation: portrait) {
     min-height: calc(var(--vh, 1vh) * 100);
   }
 
-  @media (max-width: $tablet - 1) and (orientation: landscape) {
+  @media (max-width: $tablet) and (orientation: landscape) {
     height: 100vh;
   }
 }
@@ -303,10 +318,13 @@
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
   }
+
 }
 
 .screen--prizes {
   background-color: $c-dark;
+  transition-delay: 2s;
+
 }
 
 .screen--game {
@@ -357,4 +375,13 @@
 
 .screen--rules {
   background-color: $c-dark;
+}
+
+@keyframes screenBg {
+  0% {
+
+  }
+  100% {
+    
+  }
 }
