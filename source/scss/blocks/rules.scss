@@ -159,6 +159,14 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    transform: scale(.7);
+    opacity: 0;
+    animation-duration: .4s;
+    animation-name: showRulesCount;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear; 
+    animation-delay: 0s; 
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -177,9 +185,41 @@
     }
   }
 
-  p {
-    margin: 0;
+  &:nth-child(2) {
+    p {
+      animation-delay: .2s
+    }
+    &::before {
+      animation-delay: .2s
+    }
+  }
+  &:nth-child(3) {
+    p {
+      animation-delay: .4s
+    }
+    &::before {
+      animation-delay: .4s
+    }
+  }
+  &:nth-child(4) {
+    p {
+      animation-delay: .6s
+    }
+    &::before {
+      animation-delay: .6s
+    }
+  }
 
+  p {
+    opacity: 0;
+    animation-duration: .4s;
+    animation-name: showRulesText;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear; 
+    animation-delay: 0s; 
+    margin: 0;
+    transform: translateX(30px);
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
     }
@@ -190,6 +230,15 @@
   position: absolute;
   bottom: 6rem;
   right: 5.6rem;
+  opacity: 0;
+
+  .active & {
+    animation-name: showRulesLink;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-delay: 1.2s;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
@@ -209,5 +258,52 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     bottom: 2rem;
     right: 1.5rem;
+  }
+}
+
+@keyframes showRulesCount {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(.4);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(.7);
+  }
+}
+
+@keyframes showRulesText {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes showRulesLink {
+  0% {
+    opacity: 1;
+    font-size: 0;
+    color: transparent;
+  }
+
+  80% {
+    font-size: 2.4rem;
+    color: transparent;
+  }
+
+  100% {
+    color: $c-dark;
+    opacity: 1;
   }
 }
