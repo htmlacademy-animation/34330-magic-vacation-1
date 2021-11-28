@@ -231,26 +231,22 @@
   bottom: 6rem;
   right: 5.6rem;
   opacity: 0;
-  animation-name: showRulesLink;
-  animation-duration: .5s;
-  animation-delay: 1s;
-  animation-timing-function: linear; 
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
 
-  span {
-    opacity: 0;
-    animation-name: showRulesLinkText;
-    animation-duration: .5s;
-    animation-delay: 1.4s;
-    animation-timing-function: linear; 
-    animation-iteration-count: 1;
+  .active & {
+    animation-name: showRulesLink;
+    animation-duration: 500ms;
     animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-delay: 1.2s;
   }
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
     right: 56px;
+
+    .active & {
+      width: 100%;
+    }
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -300,19 +296,18 @@
 
 @keyframes showRulesLink {
   0% {
-    width: 0;
-    opacity: 0;
-  }
-  100% {
     opacity: 1;
-    width: auto;
+    font-size: 0;
+    color: transparent;
   }
-}
-@keyframes showRulesLinkText {
-  0% {
-    opacity: 0;
+
+  80% {
+    font-size: 2.4rem;
+    color: transparent;
   }
+
   100% {
+    color: $c-dark;
     opacity: 1;
   }
 }
